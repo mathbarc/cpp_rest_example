@@ -9,6 +9,7 @@ RUN apt update -y; apt install build-essential libcpprest-dev cmake -y; apt clea
 WORKDIR /home/
 COPY ./http_hello_world/ ./http_hello_world/
 COPY ./CMakeLists.txt ./CMakeLists.txt
+COPY ./leonmusha.jpg ./leonmusha.jpg
 RUN mkdir ./build
 WORKDIR /home/build
 RUN cmake .. -DCMAKE_BUILD_TYPE=Release
@@ -18,4 +19,5 @@ RUN make install
 from base as runner
 
 COPY --from=builder /usr/local/bin/ /usr/local/bin/ 
+EXPOSE 8080
 CMD [ "hello_world" ]

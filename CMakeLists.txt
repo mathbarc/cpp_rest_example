@@ -7,4 +7,6 @@ find_package(OpenSSL REQUIRED)
 add_executable(hello_world ${CMAKE_CURRENT_SOURCE_DIR}/http_hello_world/main.cpp)
 target_link_libraries(hello_world cpprestsdk::cpprest OpenSSL::SSL OpenSSL::Crypto)
 
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/leonmusha.jpg DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
+
 install(TARGETS hello_world RUNTIME DESTINATION bin)
